@@ -1,7 +1,104 @@
 #root {
-  max-width: 1280px;
+  width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  /* Neutral-900: hsl(227, 75%, 14%);
+  Neutral-800: hsl(226, 25%, 17%);
+  Neutral-700: hsl(225, 23%, 24%);
+  Neutral-600: hsl(226, 11%, 37%);
+  Neutral-300: hsl(0, 0%, 78%);
+Neutral-200: hsl(217, 61%, 90%);
+  Neutral-100: hsl(0, 0%, 93%);
+Neutral-0 :hsl(200, 60%, 99%); */
 }
 
+.title-container{
+  background-color: hsl(227, 100%, 100%);
+  width: 100%;
+  /* height: 75px; */
+  padding: 1rem;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+main{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+.theme button{
+  background-color: hsl(226, 11%, 37%);
+  border-radius: 10px;
+  width: 50px;
+  height:50px;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+}
+.extension-container{
+  /* background-color: #fff */
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  gap: 1rem;
+
+}
+.extension{
+  background-color: #fff;
+  color: #000;
+  width: 85%;
+  padding: 1rem;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  
+}
+.content{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: first flex-start;
+  justify-content: space-between;
+  text-align: left;
+  gap: 1rem;
+}
+.options{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.filter-container{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+body.dark-mode{
+  background: linear-gradient(180deg, #040918 0%, #091540 100%);
+  color: hsl(0, 0%, 78%);
+}
+.title-container.dark-mode{
+  background-color: hsl(226, 25%, 17%);
+  color: hsl(0, 0%, 78%);
+}
+.extension.dark-mode{
+  background-color: hsl(226, 25%, 17%);
+  color: hsl(227, 100%, 100%);
+  .content p{
+    color:hsl(0, 0%, 78%)
+  }
+}
+.extension-details h4{
+  margin: 0;
+}
