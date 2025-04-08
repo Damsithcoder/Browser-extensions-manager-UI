@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useState,useEffect } from "react";
 
-export default function Extension({ id,name, description, image, state,className }) {
-    // Create a unique id for the toggle input based on the extension name
-    const toggleId = `toggle-btn-${name.replace(/\s/g, "-").toLowerCase()}`;
+export default function Extension({ key, name, description, image, options, className }) {
+    // Create a unique id for the toggle input based on the extension id or name
+    const [isToggled, setIsToggled] = useState(options);
+    useEffect(() => {
+        setIsToggled(!isToggled)
+    },[options]
+)
+
     return (
         <div className={className}>
             <div className="content">
@@ -16,11 +21,21 @@ export default function Extension({ id,name, description, image, state,className
             </div>
 
             <div className="options">
-                <button type="button" name="remove" >Remove</button>
+                <button type="button" name="remove">Remove</button>
                 <div className="toggle-btn">
-                    <input type="checkbox" id={toggleId} />
-                    <label htmlFor={toggleId}></label>
+                    <input
+                        type="checkbox"
+                        id={key}
+                        className="checkbox"
+                        checked={!isToggled}
+                    />
+                    <label htmlFor={key} className="label">
+                    
+                    </label>
                 </div>
+                {/* <b+utton type="button" className="btn btn-toggle" data-toggle="button" >
+                    <div className="handle"></div>
+                </button> */}
             </div>
         </div>
     );

@@ -22,6 +22,7 @@ Neutral-0 :hsl(200, 60%, 99%); */
   display: flex;
   align-items: center;
   justify-content: space-between;
+  /* position: fixed; */
 }
 
 main{
@@ -29,10 +30,10 @@ main{
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   gap: 2rem;
 }
-.theme button{
+.theme button.theme{
   background-color: hsl(226, 11%, 37%);
   border-radius: 10px;
   width: 50px;
@@ -78,15 +79,87 @@ main{
   align-items: center;
   width: 100%;
 }
+.toggle-btn{
+  width: 50px;
+  height: 25px;
+  border-radius: 25px;
+  background-color: hsl(226, 11%, 37%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.checkbox{
+  display: none;
+}
+.label::before{
+  position: absolute;
+  content: '';
+  top: 2px;
+  left: 2px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: hsl(0, 0%, 78%);
+}
+.checkbox:checked + 
+.toggle-btn::after{
+  background-color: hsl(17, 97%, 48%);
+}
+.checkbox:checked + .label::before{
+  background-color: hsl(17, 97%, 48%);
+  left: calc(50%);
+}
+
+
+
 .filter-container{
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
+
+button,input[type="button"] {
+  border-radius: 25px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #ffffff;
+  cursor: pointer;
+  color: hsl(0, 0, 0);
+  transition: border-color 0.25s;
+}
+
+button:hover,input[type="button"]:hover {
+  border-color: hsl(17, 97%, 48%);
+  color: hsl(0, 0%, 78%);
+}
+button:focus,
+button:focus-visible,input[type="button"]:focus {
+  background-color: hsl(17, 97%, 48%);
+  color: #ffffff;
+}
 body.dark-mode{
   background: linear-gradient(180deg, #040918 0%, #091540 100%);
   color: hsl(0, 0%, 78%);
+  button,input[type="button"]{
+    background-color: hsl(226, 25%, 17%);
+    border: 2px solid hsl(0, 0%, 78%);
+    color: hsl(227, 100%, 100%);
+  }
+  input[type="button"]:hover{
+    background-color: hsl(226, 11%, 37%);
+    border: 2px solid hsl(17, 97%, 48%);
+    color: hsl(0, 0, 0);
+  }
+  input[type="button"]:focus{
+    background-color: hsl(17, 97%, 48%);
+    border: 4px solid hsl(17, 97%, 48%);
+    color: hsl(0, 0, 0);
+  }
 }
 .title-container.dark-mode{
   background-color: hsl(226, 25%, 17%);
@@ -96,9 +169,52 @@ body.dark-mode{
   background-color: hsl(226, 25%, 17%);
   color: hsl(227, 100%, 100%);
   .content p{
-    color:hsl(0, 0%, 78%)
+    color:hsl(0, 0%, 78%);
   }
+  button:hover{
+    background-color: hsl(226, 11%, 37%);
+    border: 2px solid hsl(17, 97%, 48%);
+    color: hsl(0, 0, 0);
+  }
+  button:focus{
+    background-color: hsl(17, 97%, 48%);
+    /* border: 4px solid hsl(17, 97%, 48%); */
+    color: hsl(0, 0, 0);
+  }
+  
 }
 .extension-details h4{
   margin: 0;
+}
+@media  (width < 380){
+  body{
+    width: 370px;
+  }
+
+  .filter-container{
+    display: flex;
+    flex-direction: column;
+    h1{
+      font-size: 30px;
+    }
+  }
+  .extension-container{
+    grid-template-columns: repeat(1,1fr);
+  }
+}
+@media  (width < 450px){
+  body{
+    width: 450px;
+  }
+
+  .filter-container{
+    display: flex;
+    flex-direction: column;
+    h1{
+      font-size: 30px;
+    }
+  }
+  .extension-container{
+    grid-template-columns: repeat(1,1fr);
+  }
 }

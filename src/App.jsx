@@ -92,35 +92,22 @@ function App() {
   const [newcard, setNewcard] = useState(cards)
   function filter(e) {
     
-    console.log(e.target.name);
+    // console.log();
     if (e.target.name === 'all') {
       setNewcard(cards)
     }
     else if (e.target.name === 'active') {
-      const filteredCards = cards.filter((card) => card.isActive)
+      const filteredCards = cards.filter((card,index) => card.isActive)
       setNewcard(filteredCards)
     }
   else if (e.target.name === 'inactive') {
-    const filteredCards = cards.filter((card) => !card.isActive)
+    const filteredCards = cards.filter((card,index) => !card.isActive)
     setNewcard(filteredCards)
   }
   
   
 }
-const extensionCard = newcard.map((card) => {
-  return (
-    <Extension
-    key={card.id}
-    name={card.name}
-    description={card.description}
-    image={card.logo}
-    options={card.isActive}
-    className={!darkMode?"extension":"extension dark-mode"}
-    
-    />
-  )
-}
-)
+// const extensionCard = 
 return (
     <main >
     <div className={!darkMode?"title-container":"title-container dark-mode"}>
@@ -130,9 +117,10 @@ return (
       <div className="theme">
         <button 
         type="button"
+        className='theme'
         onClick={toggleDarkMode}
         >
-          <img src={darkMode ? dark : light} alt="dark" />
+          <img src={darkMode ? light : dark} alt="dark" />
 
         </button>
       </div>
@@ -146,7 +134,22 @@ return (
       </div>
     </div>
     <div className={!darkMode?"extension-container":"extension-container dark-mode"}>
-      {extensionCard}
+      {newcard.map((card,index) => {
+        
+        return (
+          <Extension
+          key={card.index}
+          name={card.name}
+          description={card.description}
+          image={card.logo}
+          options={card.isActive}
+          className={!darkMode?"extension":"extension dark-mode"}
+          
+          />
+        )
+        console.log(index);
+}
+)}
       
       
       
