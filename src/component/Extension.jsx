@@ -9,7 +9,7 @@ export default function Extension({ key, name, description, image, options, clas
 )
 
     return (
-        <div className={className}>
+        <div className={className} >
             <div className="content">
                 <div className="extension-image">
                     <img src={image} className="logo react" alt="React logo" />
@@ -28,6 +28,7 @@ export default function Extension({ key, name, description, image, options, clas
                         id={key}
                         className="checkbox"
                         checked={!isToggled}
+                        onChange={() => setIsToggled(!isToggled)}
                     />
                     <label htmlFor={key} className="label">
                     
