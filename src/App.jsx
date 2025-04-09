@@ -15,7 +15,7 @@ function App() {
       })
       .then(function(myJson) {
         setCards(myJson);
-        // console.log(myJson);
+        console.log(myJson);
         
       });
   }
