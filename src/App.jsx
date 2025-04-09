@@ -9,7 +9,7 @@ import { useEffect } from 'react'
 function App() {
   const [cards, setCards] = useState([])
   const getData=()=>{
-    fetch('./data.json')
+    fetch('https://damsithcoder.github.io/API/data.json')
       .then(function(response){
         return response.json();
       })
